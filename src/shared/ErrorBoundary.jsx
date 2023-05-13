@@ -21,13 +21,15 @@ class ErrorBoundary extends React.Component {
         if (this.state.errorInfo) {
             return (
                 <div className='container app-container'>
-                    <h2>Something went wrong.</h2>
-                    <details style={{ whiteSpace: 'pre-wrap' }}>
-                        {this.state.error && this.state.error.toString()}
-                        <br />
-                        {this.state.errorInfo.componentStack}
-                    </details>
-                    <button onClick={() => this.setState({ error: null, errorInfo: null })}>Reset</button>
+                    <div className='body'>
+                        <h2>Oops! Something went wrong.</h2>
+                        <details className='p-4' style={{ whiteSpace: 'pre-wrap' }}>
+                            {this.state.error && this.state.error.toString()}
+                            <br />
+                            {this.state.errorInfo.componentStack}
+                        </details>
+                        <button className='btn btn-secondary col-2' onClick={() => this.setState({ error: null, errorInfo: null })}>Reset</button>
+                    </div>
                 </div>
             );
         }
